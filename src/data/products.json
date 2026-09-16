@@ -1,0 +1,9 @@
+[
+  { "id": 1, "name": "Flux Capacitor", "category": "electronics", "price": 999.99, "description": "The component that makes time travel possible." },
+  { "id": 2, "name": "Hoverboard", "category": "sports", "price": 249.5, "description": "No roads where we're going, but this still needs a smooth surface." },
+  { "id": 3, "name": "Self-Lacing Sneakers", "category": "apparel", "price": 129.0, "description": "Power laces. Auto-fit high-top sneakers." },
+  { "id": 4, "name": "DeLorean Time Machine", "category": "automotive", "price": 89999.0, "description": "Stainless steel body, gull-wing doors, 88 mph required." },
+  { "id": 5, "name": "Almanac 1950-2000", "category": "books", "price": 39.99, "description": "Sports almanac covering fifty years of results. Handle with care." },
+  { "id": 6, "name": "Plutonium Canister", "category": "electronics", "price": 5000.0, "description": "1.21 gigawatts of pure power. Handling license required." },
+  { "id": 7, "name": "Portable Weather Station", "category": "outdoors", "price": 79.99, "description": "Track storms before they hit the clock tower." }
+]
