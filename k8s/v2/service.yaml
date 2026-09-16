@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: product-catalogue-svc
+  namespace: product-catalogue-v2
+  labels:
+    app: product-catalogue
+    version: v2.0
+spec:
+  selector:
+    app: product-catalogue
+    version: v2.0
+  ports:
+    - port: 80
+      targetPort: 3000
+  type: ClusterIP

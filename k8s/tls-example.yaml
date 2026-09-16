@@ -1,0 +1,26 @@
+# Bonus: TLS for secure communication with the microservice.
+#
+# Terminates TLS at the ingress controller. In a real cluster, the
+# "product-catalogue-tls" secret would normally be created automatically by
+# cert-manager (Let's Encrypt) rather than by hand:
+#
+#   kubectl create secret tls product-catalogue-tls \
+#     --cert=path/to/fullchain.pem --key=path/to/privkey.pem \
+#     -n product-catalogue-v2
+#
+# This snippet shows the addition to an Ingress (merge into k8s/v*/ingress.yaml
+# rather than applying standalone, since a host+TLS pair is usually declared
+# once per Ingress object):
+#
+# spec:
+#   tls:
+#     - hosts:
+#         - product-catalogue.local
+#       secretName: product-catalogue-tls
+#   rules:
+#     - host: product-catalogue.local
+#       ...
+#
+# For fully automated certs, install cert-manager and add this annotation to
+# each Ingress instead of managing the secret by hand:
+#   cert-manager.io/cluster-issuer: letsencrypt-prod

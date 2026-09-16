@@ -1,0 +1,19 @@
+# Local convenience only - not used in Kubernetes. Demonstrates the
+# .env-based secret/config management mentioned in the Dockerfile section.
+#
+# Usage:
+#   cp .env.example .env
+#   docker compose up --build
+
+services:
+  product-catalogue:
+    build: .
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+    healthcheck:
+      test: ["CMD", "wget", "-q", "--spider", "http://127.0.0.1:3000/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
