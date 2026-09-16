@@ -1,6 +1,6 @@
 {
   "name": "product-catalogue-service",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "description": "REST API for managing a product catalogue (containerized microservice demo).",
   "main": "src/server.js",
   "scripts": {
