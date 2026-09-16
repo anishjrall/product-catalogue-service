@@ -3,6 +3,12 @@
 All notable changes to this microservice are documented here.
 Format loosely follows [Keep a Changelog](https://keepachangelog.com/).
 
+## [1.1.0]
+
+### Added
+- `GET /products/search?keyword=xxx` - case-insensitive keyword search over
+  product name and description.
+
 ## [1.0.0] - Base release
 
 ### Added

@@ -1,10 +1,20 @@
-// routes/products.js (v1.0)
-// Base product catalogue endpoints: list all products, fetch a single one.
+// routes/products.js
+// v1.0: list all products, fetch a single one.
+// v1.1: + keyword search.
 
 const express = require("express");
 const products = require("../data/products.json");
+const { searchByKeyword } = require("../lib/search");
 
 const router = express.Router();
+
+// GET /products/search?keyword=xxx
+// NOTE: registered before "/:id" so "search" is never mistaken for an id.
+router.get("/search", (req, res) => {
+  const { keyword } = req.query;
+  const results = searchByKeyword(products, keyword);
+  res.status(200).json({ count: results.length, products: results });
+});
 
 // GET /products - list the full catalogue.
 router.get("/", (req, res) => {
