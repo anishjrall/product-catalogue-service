@@ -79,6 +79,18 @@ jobs:
         with:
           cluster_name: product-catalogue-ci
 
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Load built image into kind
+        run: |
+          TAG=${{ needs.build-and-push.outputs.image_tag }}
+          docker pull ${{ env.IMAGE_NAME }}:${TAG}
+          kind load docker-image --name product-catalogue-ci ${{ env.IMAGE_NAME }}:${TAG}
+
       - name: Substitute image tag into manifests
         run: |
           TAG=${{ needs.build-and-push.outputs.image_tag }}
